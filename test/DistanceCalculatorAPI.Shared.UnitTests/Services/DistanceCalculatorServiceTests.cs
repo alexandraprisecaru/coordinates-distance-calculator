@@ -1,7 +1,6 @@
 ﻿namespace DistanceCalculatorAPI.Shared.UnitTests.Services;
 
 using DistanceCalculatorApi.Application.DTOs;
-using DistanceCalculatorApi.Application.Enums;
 using FluentAssertions;
 using Shared.Services;
 using Xunit;
@@ -21,22 +20,33 @@ public class DistanceCalculatorServiceTests
     }
 
     [Fact]
-    public void CalculateDistanceShouldReturnMetricDistanceInKm()
+    public void CalculateSphericalDistanceShouldReturnResult()
     {
         // Act
-        var distance = _distanceCalculatorService.CalculateDistance(_firstCoordinate, _secondCoordinate, Unit.Metric);
+        var distance = _distanceCalculatorService.CalculateSphericalDistance(_firstCoordinate, _secondCoordinate);
 
         // Assert
-        distance.Should().Be(4617.36419640607);
+        distance.Should().Be(5536.338682266685);
     }
     
     [Fact]
-    public void CalculateDistanceShouldReturnDistanceInMiles()
+    public void CalculateFlatDistanceShouldReturnResult()
     {
         // Act
-        var distance = _distanceCalculatorService.CalculateDistance(_firstCoordinate, _secondCoordinate, Unit.Imperial);
+        var distance = _distanceCalculatorService.CalculateFlatDistance(_firstCoordinate, _secondCoordinate);
 
         // Assert
-        distance.Should().Be(2869.096208085036);
+        distance.Should().Be(8456.26940135452);
     }
+    
+    [Fact]
+    public void CalculateEllipsoidalDistanceShouldReturnResult()
+    {
+        // Act
+        var distance = _distanceCalculatorService.CalculateEllipsoidalDistance(_firstCoordinate, _secondCoordinate);
+
+        // Assert
+        distance.Should().Be(5541.118130195186);
+    }
+
 }

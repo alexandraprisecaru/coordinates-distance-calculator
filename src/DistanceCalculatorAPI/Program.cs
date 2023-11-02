@@ -11,7 +11,7 @@ using Serilog;
 
 const string LocalIpV4 = "0.0.0.1";
 const string LocalIpV6 = "::1";
-const string USAIpAddress = "101.33.20.0";
+const string ROAIpAddress = "109.163.226.0";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,11 +39,35 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("distance", GetDistance);
+var distance = app.MapGroup("distance");
+distance.MapPost("sphere", GetSphericalDistanceAsync);
+distance.MapPost("flat", GetFlatDistanceAsync);
+distance.MapPost("ellipsoid", GetEllipsoidalDistanceAsync);
 
-async Task<IResult> GetDistance(IDistanceProviderService distanceProviderService,
+async Task<IResult> GetSphericalDistanceAsync(IDistanceProviderService distanceProviderService,
     IValidator<GetDistanceRequest> validator, HttpContext context,
     GetDistanceRequest locations, [FromQuery] Unit? unit = null)
+{
+    return await GetDistanceAsync(distanceProviderService, validator, context, locations, CalculationType.Spherical, unit);
+}
+
+async Task<IResult> GetFlatDistanceAsync(IDistanceProviderService distanceProviderService,
+    IValidator<GetDistanceRequest> validator, HttpContext context,
+    GetDistanceRequest locations, [FromQuery] Unit? unit = null)
+{
+    return await GetDistanceAsync(distanceProviderService, validator, context, locations, CalculationType.Flat, unit);
+}
+
+async Task<IResult> GetEllipsoidalDistanceAsync(IDistanceProviderService distanceProviderService,
+    IValidator<GetDistanceRequest> validator, HttpContext context,
+    GetDistanceRequest locations, [FromQuery] Unit? unit = null)
+{
+    return await GetDistanceAsync(distanceProviderService, validator, context, locations, CalculationType.Ellipsoidal, unit);
+}
+
+async Task<IResult> GetDistanceAsync(IDistanceProviderService distanceProviderService,
+    IValidator<GetDistanceRequest> validator, HttpContext context,
+    GetDistanceRequest locations, CalculationType type, [FromQuery] Unit? unit = null)
 {
     var validationResult = await validator.ValidateAsync(locations);
     if (validationResult.IsValid is false)
@@ -55,11 +79,11 @@ async Task<IResult> GetDistance(IDistanceProviderService distanceProviderService
     if (ipAddress is LocalIpV4 or LocalIpV6)
     {
         // Set a default ip address to be used on localhost for testing purposes
-        ipAddress = USAIpAddress;
+        ipAddress = ROAIpAddress;
     }
 
     return TypedResults.Ok(
-        await distanceProviderService.GetDistanceAsync(locations.PointA, locations.PointB, ipAddress, unit));
+        await distanceProviderService.GetDistanceAsync(locations.PointA, locations.PointB, ipAddress!, type, unit));
 }
 
 app.Run();

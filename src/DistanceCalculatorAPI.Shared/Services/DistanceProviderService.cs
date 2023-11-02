@@ -21,15 +21,32 @@ public class DistanceProviderService : IDistanceProviderService
     }
 
     public async Task<DistanceResponse> GetDistanceAsync(CoordinateDto pointA, CoordinateDto pointB, string ipAddress,
+        CalculationType type,
         Unit? unit = null,
         CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
         unit ??= await GetUnitByIpAddress(ipAddress, cancellationToken);
-        
-        this._log.Information("Calculating distance between coordinates");
-        var distance = this._distanceCalculatorService.CalculateDistance(pointA, pointB, (Unit)unit);
+
+        this._log.Information("Calculating distance between coordinates on sphere");
+        var distance = this._distanceCalculatorService.CalculateFlatDistance(pointA, pointB);
+
+        switch (type)
+        {
+            case CalculationType.Spherical:
+                distance = this._distanceCalculatorService.CalculateSphericalDistance(pointA, pointB);
+                break;
+            case CalculationType.Flat:
+                distance = this._distanceCalculatorService.CalculateFlatDistance(pointA, pointB);
+                break;
+            case CalculationType.Ellipsoidal:
+                distance = this._distanceCalculatorService.CalculateEllipsoidalDistance(pointA, pointB);
+                break;
+        }
+
+        if (unit is Unit.Imperial)
+            distance *= 0.621371;
 
         return new DistanceResponse(distance, unit);
     }

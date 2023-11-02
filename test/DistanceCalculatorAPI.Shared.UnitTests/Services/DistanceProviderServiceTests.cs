@@ -16,11 +16,12 @@ public class DistanceProviderServiceTests
 
     private readonly CoordinateDto _pointA;
     private readonly CoordinateDto _pointB;
-    private readonly Unit _unit;
+    private readonly Unit _metricUnit;
     private readonly Mock<IDistanceCalculatorService> _mockDistanceCalculatorService;
     private readonly Mock<ILocationProviderService> _mockLocationProviderService;
-    
+
     private readonly DistanceProviderService _distanceProviderService;
+    private readonly CalculationType _sphereType;
 
     public DistanceProviderServiceTests()
     {
@@ -29,7 +30,8 @@ public class DistanceProviderServiceTests
         _pointA = fixture.Create<CoordinateDto>();
         _pointB = fixture.Create<CoordinateDto>();
         _ipAddress = fixture.Create<string>();
-        _unit = Unit.Metric;
+        this._metricUnit = Unit.Metric;
+        this._sphereType = CalculationType.Spherical;
 
         _mockDistanceCalculatorService = new Mock<IDistanceCalculatorService>();
         _mockLocationProviderService = new Mock<ILocationProviderService>();
@@ -49,13 +51,13 @@ public class DistanceProviderServiceTests
 
         // Act + Assert
         var call = async () =>
-            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, _unit,
+            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, this._sphereType, this._metricUnit,
                 cancellationTokenSource.Token);
         call.Should().ThrowAsync<OperationCanceledException>();
     }
 
     [Fact]
-    public async Task GetDistanceAsyncShouldGetUnitBasedOnIpAddressIfUnitIsMissing()
+    public async Task GetDistanceAsyncShouldGetUnitBasedOnIpAddressIfUnitIsMissingAndShouldUpdateUnitOnImperial()
     {
         // Arrange
         _mockLocationProviderService
@@ -63,46 +65,47 @@ public class DistanceProviderServiceTests
             .ReturnsAsync("US");
 
         var expectedDistance = 30.56;
+        var expectedDistanceInMiles = 18.98909776;
         Unit? unit = null;
-        
+
         _mockDistanceCalculatorService
-            .Setup(x => x.CalculateDistance(It.IsAny<CoordinateDto>(), It.IsAny<CoordinateDto>(),It.IsAny<Unit>()))
+            .Setup(x => x.CalculateSphericalDistance(It.IsAny<CoordinateDto>(), It.IsAny<CoordinateDto>()))
             .Returns(expectedDistance);
 
         // Act
-        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, unit);
+        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, this._sphereType, unit);
 
         // Assert
         _mockLocationProviderService.Verify(
             x => x.GetCountryCodeAsync(_ipAddress, It.IsAny<CancellationToken>()), Times.Once);
-        
+
         _mockDistanceCalculatorService.Verify(
-            x => x.CalculateDistance(_pointA, _pointB, Unit.Imperial), Times.Once);
+            x => x.CalculateSphericalDistance(_pointA, _pointB), Times.Once);
 
         response.Should().NotBeNull();
-        response.Distance.Should().Be(expectedDistance);
+        response.Distance.Should().Be(expectedDistanceInMiles);
         response.Unit.Should().Be(Unit.Imperial);
     }
 
     [Fact]
-    public async Task GetDistanceAsyncShouldUseUnitIfProvided()
+    public async Task GetSphericalDistanceAsyncShouldUseUnitIfProvided()
     {
         // Arrange
         var expectedDistance = 30.56;
         var unit = Unit.Metric;
         _mockDistanceCalculatorService
-            .Setup(x => x.CalculateDistance(It.IsAny<CoordinateDto>(), It.IsAny<CoordinateDto>(),It.IsAny<Unit>()))
+            .Setup(x => x.CalculateSphericalDistance(It.IsAny<CoordinateDto>(), It.IsAny<CoordinateDto>()))
             .Returns(expectedDistance);
 
         // Act
-        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, unit);
+        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, this._sphereType, unit);
 
         // Assert
         _mockLocationProviderService.Verify(
             x => x.GetCountryCodeAsync(_ipAddress, It.IsAny<CancellationToken>()), Times.Never);
-        
+
         _mockDistanceCalculatorService.Verify(
-            x => x.CalculateDistance(_pointA, _pointB, unit), Times.Once);
+            x => x.CalculateSphericalDistance(_pointA, _pointB), Times.Once);
 
         response.Should().NotBeNull();
         response.Distance.Should().Be(expectedDistance);

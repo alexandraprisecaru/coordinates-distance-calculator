@@ -30,7 +30,7 @@ public class DistanceProviderService : IDistanceProviderService
         unit ??= await GetUnitByIpAddress(ipAddress, cancellationToken);
 
         this._log.Information("Calculating distance between coordinates on sphere");
-        var distance = this._distanceCalculatorService.CalculateFlatDistance(pointA, pointB);
+        double distance = 0;
 
         switch (type)
         {

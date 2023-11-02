@@ -41,7 +41,7 @@ public class DistanceCalculatorTests : IClassFixture<SharedFixture>
     }
 
     [Fact]
-    public async Task ShouldGetDistanceBasedOnUnitProvided()
+    public async Task ShouldGetDistanceBasedOnUnitProvided_Sphere()
     {
         var result =
             await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, ROAIpAddress,
@@ -49,28 +49,52 @@ public class DistanceCalculatorTests : IClassFixture<SharedFixture>
 
         result.Should().NotBeNull();
         result.Unit.Should().Be(this._metricUnit);
-        result.Distance.Should().Be(10239.52659935647);
+        result.Distance.Should().Be(8509.390927355293);
     }
 
     [Fact]
-    public async Task ShouldIdentifyMetricUnitBasedOnIpAndUseIdtToGetDistance()
+    public async Task ShouldIdentifyMetricUnitBasedOnIpAndUseIdtToGetDistance_Sphere()
     {
         var result =
             await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, ROAIpAddress, this._sphericalType);
 
         result.Should().NotBeNull();
         result.Unit.Should().Be(Unit.Metric);
-        result.Distance.Should().Be(10239.52659935647);
+        result.Distance.Should().Be(8509.390927355293);
     }
 
     [Fact]
-    public async Task ShouldIdentifyImperialUnitBasedOnIpAndUseIdtToGetDistance()
+    public async Task ShouldIdentifyImperialUnitBasedOnIpAndUseIdtToGetDistance_Sphere()
     {
         var result =
             await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, USAIpAddress, this._sphericalType);
 
         result.Should().NotBeNull();
         result.Unit.Should().Be(Unit.Imperial);
-        result.Distance.Should().Be(6362.544882568729);
+        result.Distance.Should().Be(5287.488749921686);
+    }
+
+    [Fact]
+    public async Task ShouldCalculateDistance_Flat()
+    {
+        var result =
+            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, USAIpAddress, CalculationType.Flat,
+                Unit.Metric);
+
+        result.Should().NotBeNull();
+        result.Unit.Should().Be(Unit.Metric);
+        result.Distance.Should().Be(8758.358388894409);
+    }
+
+    [Fact]
+    public async Task ShouldCalculateDistance_Ellipsoidal()
+    {
+        var result =
+            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, USAIpAddress, CalculationType.Ellipsoidal,
+                Unit.Metric);
+
+        result.Should().NotBeNull();
+        result.Unit.Should().Be(Unit.Metric);
+        result.Distance.Should().Be(8516.736971948052);
     }
 }

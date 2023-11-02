@@ -22,7 +22,7 @@ public class DistanceProviderServiceTests
 
     private readonly DistanceProviderService _distanceProviderService;
     private readonly CalculationType _sphereType;
-
+    
     public DistanceProviderServiceTests()
     {
         var fixture = new Fixture();
@@ -43,7 +43,7 @@ public class DistanceProviderServiceTests
     }
 
     [Fact]
-    public void GetDistanceAsyncShouldThrowExceptionOnCancel()
+    public void GetDistanceAsyncShouldThrowExceptionOnCancel_Sphere()
     {
         // Arrange
         var cancellationTokenSource = new CancellationTokenSource();
@@ -57,7 +57,7 @@ public class DistanceProviderServiceTests
     }
 
     [Fact]
-    public async Task GetDistanceAsyncShouldGetUnitBasedOnIpAddressIfUnitIsMissingAndShouldUpdateUnitOnImperial()
+    public async Task GetDistanceAsyncShouldGetUnitBasedOnIpAddressIfUnitIsMissingAndShouldUpdateUnitOnImperial_Sphere()
     {
         // Arrange
         _mockLocationProviderService
@@ -88,7 +88,7 @@ public class DistanceProviderServiceTests
     }
 
     [Fact]
-    public async Task GetSphericalDistanceAsyncShouldUseUnitIfProvided()
+    public async Task GetDistanceAsyncShouldUseUnitIfProvided_Sphere()
     {
         // Arrange
         var expectedDistance = 30.56;
@@ -106,6 +106,56 @@ public class DistanceProviderServiceTests
 
         _mockDistanceCalculatorService.Verify(
             x => x.CalculateSphericalDistance(_pointA, _pointB), Times.Once);
+
+        response.Should().NotBeNull();
+        response.Distance.Should().Be(expectedDistance);
+        response.Unit.Should().Be(unit);
+    }
+    
+    [Fact]
+    public async Task GetDistanceAsyncShouldUseUnitIfProvided_Flat()
+    {
+        // Arrange
+        var expectedDistance = 30.56;
+        var unit = Unit.Metric;
+        _mockDistanceCalculatorService
+            .Setup(x => x.CalculateFlatDistance(It.IsAny<CoordinateDto>(), It.IsAny<CoordinateDto>()))
+            .Returns(expectedDistance);
+
+        // Act
+        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, CalculationType.Flat, unit);
+
+        // Assert
+        _mockLocationProviderService.Verify(
+            x => x.GetCountryCodeAsync(_ipAddress, It.IsAny<CancellationToken>()), Times.Never);
+
+        _mockDistanceCalculatorService.Verify(
+            x => x.CalculateFlatDistance(_pointA, _pointB), Times.Once);
+
+        response.Should().NotBeNull();
+        response.Distance.Should().Be(expectedDistance);
+        response.Unit.Should().Be(unit);
+    }
+    
+    [Fact]
+    public async Task GetDistanceAsyncShouldUseUnitIfProvided_Ellipsoidal()
+    {
+        // Arrange
+        var expectedDistance = 30.56;
+        var unit = Unit.Metric;
+        _mockDistanceCalculatorService
+            .Setup(x => x.CalculateEllipsoidalDistance(It.IsAny<CoordinateDto>(), It.IsAny<CoordinateDto>()))
+            .Returns(expectedDistance);
+
+        // Act
+        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, CalculationType.Ellipsoidal, unit);
+
+        // Assert
+        _mockLocationProviderService.Verify(
+            x => x.GetCountryCodeAsync(_ipAddress, It.IsAny<CancellationToken>()), Times.Never);
+
+        _mockDistanceCalculatorService.Verify(
+            x => x.CalculateEllipsoidalDistance(_pointA, _pointB), Times.Once);
 
         response.Should().NotBeNull();
         response.Distance.Should().Be(expectedDistance);

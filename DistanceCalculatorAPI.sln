@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D3F8714E-EA2F-40BB-A406-8A01A6721DB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4377257F-AF68-4AFE-B467-1A596C4CEB0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{E74BDE29-7678-4277-BDA7-E04D219E0E04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{11534F29-0B52-42B7-9B22-F5142EBE2057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceCalculatorAPI", "src\DistanceCalculatorAPI\DistanceCalculatorAPI.csproj", "{96A815F7-75C2-4CC8-9C11-73E53BCD7A8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceCalculatorApi.Application", "src\DistanceCalculatorApi.Application\DistanceCalculatorApi.Application.csproj", "{94400E96-8B67-4925-810B-302FC8728203}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceCalculatorAPI.Shared", "src\DistanceCalculatorAPI.Shared\DistanceCalculatorAPI.Shared.csproj", "{3417DF98-F1D1-482C-95CB-66A13A0AFFE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceCalculatorAPI.Shared.UnitTests", "test\DistanceCalculatorAPI.Shared.UnitTests\DistanceCalculatorAPI.Shared.UnitTests.csproj", "{F7D8950F-25C4-4471-8883-B674BB104A15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceCalculatorAPI.IntegrationTests", "test\DistanceCalculatorAPI.IntegrationTests\DistanceCalculatorAPI.IntegrationTests.csproj", "{AB5D8F8F-2F25-4B53-B30F-2EFE6AABD1B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96A815F7-75C2-4CC8-9C11-73E53BCD7A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A815F7-75C2-4CC8-9C11-73E53BCD7A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A815F7-75C2-4CC8-9C11-73E53BCD7A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A815F7-75C2-4CC8-9C11-73E53BCD7A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94400E96-8B67-4925-810B-302FC8728203}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94400E96-8B67-4925-810B-302FC8728203}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94400E96-8B67-4925-810B-302FC8728203}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94400E96-8B67-4925-810B-302FC8728203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3417DF98-F1D1-482C-95CB-66A13A0AFFE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3417DF98-F1D1-482C-95CB-66A13A0AFFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3417DF98-F1D1-482C-95CB-66A13A0AFFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3417DF98-F1D1-482C-95CB-66A13A0AFFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D8950F-25C4-4471-8883-B674BB104A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D8950F-25C4-4471-8883-B674BB104A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D8950F-25C4-4471-8883-B674BB104A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D8950F-25C4-4471-8883-B674BB104A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB5D8F8F-2F25-4B53-B30F-2EFE6AABD1B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5D8F8F-2F25-4B53-B30F-2EFE6AABD1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB5D8F8F-2F25-4B53-B30F-2EFE6AABD1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5D8F8F-2F25-4B53-B30F-2EFE6AABD1B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E74BDE29-7678-4277-BDA7-E04D219E0E04} = {4377257F-AF68-4AFE-B467-1A596C4CEB0D}
+		{11534F29-0B52-42B7-9B22-F5142EBE2057} = {4377257F-AF68-4AFE-B467-1A596C4CEB0D}
+		{96A815F7-75C2-4CC8-9C11-73E53BCD7A8F} = {D3F8714E-EA2F-40BB-A406-8A01A6721DB9}
+		{94400E96-8B67-4925-810B-302FC8728203} = {D3F8714E-EA2F-40BB-A406-8A01A6721DB9}
+		{3417DF98-F1D1-482C-95CB-66A13A0AFFE1} = {D3F8714E-EA2F-40BB-A406-8A01A6721DB9}
+		{F7D8950F-25C4-4471-8883-B674BB104A15} = {E74BDE29-7678-4277-BDA7-E04D219E0E04}
+		{AB5D8F8F-2F25-4B53-B30F-2EFE6AABD1B5} = {11534F29-0B52-42B7-9B22-F5142EBE2057}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,263 @@
+2023-11-02 14:56:01.645 +02:00 [DBG] Hosting starting
+2023-11-02 14:56:01.961 +02:00 [INF] Now listening on: https://localhost:7130
+2023-11-02 14:56:02.004 +02:00 [INF] Now listening on: http://localhost:5241
+2023-11-02 14:56:02.004 +02:00 [DBG] Loaded hosting startup assembly DistanceCalculatorAPI
+2023-11-02 14:56:02.004 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-02 14:56:02.004 +02:00 [INF] Hosting environment: Development
+2023-11-02 14:56:02.004 +02:00 [INF] Content root path: /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI
+2023-11-02 14:56:02.004 +02:00 [DBG] Hosting started
+2023-11-02 14:56:02.007 +02:00 [DBG] Connection id "0HMURKC8LCDQF" received FIN.
+2023-11-02 14:56:02.011 +02:00 [DBG] Connection id "0HMURKC8LCDQF" accepted.
+2023-11-02 14:56:02.012 +02:00 [DBG] Connection id "0HMURKC8LCDQF" started.
+2023-11-02 14:56:02.028 +02:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-11-02 14:56:02.043 +02:00 [DBG] Connection id "0HMURKC8LCDQF" stopped.
+2023-11-02 14:56:02.069 +02:00 [DBG] Connection id "0HMURKC8LCDQF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-11-02 14:56:02.069 +02:00 [DBG] Connection id "0HMURKC8LCDQG" accepted.
+2023-11-02 14:56:02.072 +02:00 [DBG] Connection id "0HMURKC8LCDQG" started.
+2023-11-02 14:56:02.072 +02:00 [DBG] Connection id "0HMURKC8LCDQH" accepted.
+2023-11-02 14:56:02.073 +02:00 [DBG] Connection id "0HMURKC8LCDQH" started.
+2023-11-02 14:56:02.148 +02:00 [DBG] Connection 0HMURKC8LCDQG established using the following protocol: "Tls12"
+2023-11-02 14:56:02.148 +02:00 [DBG] Connection 0HMURKC8LCDQH established using the following protocol: "Tls12"
+2023-11-02 14:56:02.187 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/index.html - -
+2023-11-02 14:56:02.188 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-11-02 14:56:02.231 +02:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2023-11-02 14:56:02.232 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 14:56:02.332 +02:00 [DBG] Connection id "0HMURKC8LCDQH" completed keep alive response.
+2023-11-02 14:56:02.334 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/index.html - - - 200 - text/html;charset=utf-8 147.7576ms
+2023-11-02 14:56:02.358 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/swagger-ui-bundle.js - -
+2023-11-02 14:56:02.359 +02:00 [DBG] No candidates found for the request path '/swagger/swagger-ui-bundle.js'
+2023-11-02 14:56:02.359 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 14:56:02.525 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-11-02 14:56:02.526 +02:00 [DBG] Connection id "0HMURKC8LCDQH" completed keep alive response.
+2023-11-02 14:56:02.527 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 168.1186ms
+2023-11-02 14:56:02.838 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - -
+2023-11-02 14:56:02.839 +02:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2023-11-02 14:56:02.839 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 14:56:02.842 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-02 14:56:02.933 +02:00 [DBG] Connection id "0HMURKC8LCDQH" completed keep alive response.
+2023-11-02 14:56:02.933 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 94.7930ms
+2023-11-02 14:56:09.283 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance application/json 149
+2023-11-02 14:56:09.285 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 14:56:09.285 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 14:56:09.286 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 14:56:09.291 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 14:56:09.296 +02:00 [DBG] Connection id "0HMURKC8LCDQH", Request id "0HMURKC8LCDQH:00000004": started reading request body.
+2023-11-02 14:56:09.296 +02:00 [DBG] Connection id "0HMURKC8LCDQH", Request id "0HMURKC8LCDQH:00000004": done reading request body.
+2023-11-02 14:56:13.070 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 14:56:13.071 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Culture name '{"error": true, "reason": "RateLimited", "message": "Visit: https://ipapi.co/ratelimited/ "}' is not supported. (Parameter 'name')
+   at System.Globalization.RegionInfo..ctor(String name)
+   at DistanceCalculatorAPI.Shared.Services.DistanceProviderService.GetUnitByIpAddress(String ipAddress, CancellationToken cancellationToken) in /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI.Shared/Services/DistanceProviderService.cs:line 34
+   at DistanceCalculatorAPI.Shared.Services.DistanceProviderService.GetDistanceAsync(CoordinateDto pointA, CoordinateDto pointB, String ipAddress, Nullable`1 unit, CancellationToken cancellationToken) in /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI.Shared/Services/DistanceProviderService.cs:line 24
+   at Program.<<Main>$>g__GetDistance|0_1(IDistanceProviderService distanceProviderService, IValidator`1 validator, HttpContext context, GetDistanceRequest locations, Nullable`1 unit) in /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI/Program.cs:line 64
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass90_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-11-02 14:56:13.076 +02:00 [DBG] Connection id "0HMURKC8LCDQH" completed keep alive response.
+2023-11-02 14:56:13.076 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance application/json 149 - 500 - text/plain;+charset=utf-8 3794.5621ms
+2023-11-02 14:56:39.567 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance application/json 149
+2023-11-02 14:56:39.567 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 14:56:39.568 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 14:56:39.568 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 14:56:39.568 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 14:56:39.568 +02:00 [DBG] Connection id "0HMURKC8LCDQH", Request id "0HMURKC8LCDQH:00000005": started reading request body.
+2023-11-02 14:56:39.568 +02:00 [DBG] Connection id "0HMURKC8LCDQH", Request id "0HMURKC8LCDQH:00000005": done reading request body.
+2023-11-02 15:14:53.184 +02:00 [DBG] Hosting starting
+2023-11-02 15:14:53.483 +02:00 [INF] Now listening on: https://localhost:7130
+2023-11-02 15:14:53.484 +02:00 [INF] Now listening on: http://localhost:5241
+2023-11-02 15:14:53.484 +02:00 [DBG] Loaded hosting startup assembly DistanceCalculatorAPI
+2023-11-02 15:14:53.485 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-02 15:14:53.485 +02:00 [INF] Hosting environment: Development
+2023-11-02 15:14:53.485 +02:00 [INF] Content root path: /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI
+2023-11-02 15:14:53.485 +02:00 [DBG] Hosting started
+2023-11-02 15:14:53.886 +02:00 [DBG] Connection id "0HMURKMPVQL59" received FIN.
+2023-11-02 15:14:53.889 +02:00 [DBG] Connection id "0HMURKMPVQL59" accepted.
+2023-11-02 15:14:53.890 +02:00 [DBG] Connection id "0HMURKMPVQL59" started.
+2023-11-02 15:14:53.901 +02:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-11-02 15:14:53.912 +02:00 [DBG] Connection id "0HMURKMPVQL59" stopped.
+2023-11-02 15:14:53.916 +02:00 [DBG] Connection id "0HMURKMPVQL59" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-11-02 15:14:54.013 +02:00 [DBG] Connection id "0HMURKMPVQL5A" accepted.
+2023-11-02 15:14:54.030 +02:00 [DBG] Connection id "0HMURKMPVQL5A" started.
+2023-11-02 15:14:54.031 +02:00 [DBG] Connection id "0HMURKMPVQL5B" accepted.
+2023-11-02 15:14:54.034 +02:00 [DBG] Connection id "0HMURKMPVQL5B" started.
+2023-11-02 15:14:54.090 +02:00 [DBG] Connection 0HMURKMPVQL5A established using the following protocol: "Tls12"
+2023-11-02 15:14:54.090 +02:00 [DBG] Connection 0HMURKMPVQL5B established using the following protocol: "Tls12"
+2023-11-02 15:14:54.136 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/index.html - -
+2023-11-02 15:14:54.137 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-11-02 15:14:54.181 +02:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2023-11-02 15:14:54.181 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 15:14:54.292 +02:00 [DBG] Connection id "0HMURKMPVQL5A" completed keep alive response.
+2023-11-02 15:14:54.293 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/index.html - - - 200 - text/html;charset=utf-8 158.1803ms
+2023-11-02 15:14:54.732 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - -
+2023-11-02 15:14:54.732 +02:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2023-11-02 15:14:54.732 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 15:14:54.738 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-02 15:14:54.847 +02:00 [DBG] Connection id "0HMURKMPVQL5A" completed keep alive response.
+2023-11-02 15:14:54.848 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 115.5822ms
+2023-11-02 15:14:57.853 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance application/json 149
+2023-11-02 15:14:57.855 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:14:57.856 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:14:57.857 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:14:57.861 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:14:57.865 +02:00 [DBG] Connection id "0HMURKMPVQL5A", Request id "0HMURKMPVQL5A:00000003": started reading request body.
+2023-11-02 15:14:57.866 +02:00 [DBG] Connection id "0HMURKMPVQL5A", Request id "0HMURKMPVQL5A:00000003": done reading request body.
+2023-11-02 15:15:38.928 +02:00 [DBG] Hosting starting
+2023-11-02 15:15:39.208 +02:00 [INF] Now listening on: https://localhost:7130
+2023-11-02 15:15:39.233 +02:00 [INF] Now listening on: http://localhost:5241
+2023-11-02 15:15:39.233 +02:00 [DBG] Loaded hosting startup assembly DistanceCalculatorAPI
+2023-11-02 15:15:39.233 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-02 15:15:39.233 +02:00 [INF] Hosting environment: Development
+2023-11-02 15:15:39.233 +02:00 [INF] Content root path: /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI
+2023-11-02 15:15:39.233 +02:00 [DBG] Hosting started
+2023-11-02 15:15:39.236 +02:00 [DBG] Connection id "0HMURKN7GA7UP" received FIN.
+2023-11-02 15:15:39.242 +02:00 [DBG] Connection id "0HMURKN7GA7UP" accepted.
+2023-11-02 15:15:39.244 +02:00 [DBG] Connection id "0HMURKN7GA7UP" started.
+2023-11-02 15:15:39.254 +02:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-11-02 15:15:39.267 +02:00 [DBG] Connection id "0HMURKN7GA7UP" stopped.
+2023-11-02 15:15:39.275 +02:00 [DBG] Connection id "0HMURKN7GA7UP" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-11-02 15:15:39.363 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" accepted.
+2023-11-02 15:15:39.381 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" started.
+2023-11-02 15:15:39.387 +02:00 [DBG] Connection id "0HMURKN7GA7UR" accepted.
+2023-11-02 15:15:39.387 +02:00 [DBG] Connection id "0HMURKN7GA7UR" started.
+2023-11-02 15:15:39.444 +02:00 [DBG] Connection 0HMURKN7GA7UR established using the following protocol: "Tls12"
+2023-11-02 15:15:39.444 +02:00 [DBG] Connection 0HMURKN7GA7UQ established using the following protocol: "Tls12"
+2023-11-02 15:15:39.477 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/index.html - -
+2023-11-02 15:15:39.478 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-11-02 15:15:39.516 +02:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2023-11-02 15:15:39.516 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 15:15:39.601 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" completed keep alive response.
+2023-11-02 15:15:39.603 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/index.html - - - 200 - text/html;charset=utf-8 126.5250ms
+2023-11-02 15:15:39.985 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - -
+2023-11-02 15:15:39.985 +02:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2023-11-02 15:15:39.985 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 15:15:39.988 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-02 15:15:40.107 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" completed keep alive response.
+2023-11-02 15:15:40.107 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 122.2817ms
+2023-11-02 15:15:45.454 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance application/json 149
+2023-11-02 15:15:45.456 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:15:45.457 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:15:45.457 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:15:45.463 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:15:45.468 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000003": started reading request body.
+2023-11-02 15:15:45.468 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000003": done reading request body.
+2023-11-02 15:16:23.748 +02:00 [INF] Setting HTTP status code 200.
+2023-11-02 15:16:23.749 +02:00 [INF] Writing value of type 'DistanceResponse' as Json.
+2023-11-02 15:16:23.764 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:23.766 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" completed keep alive response.
+2023-11-02 15:16:23.766 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance application/json 149 - 200 - application/json;+charset=utf-8 38302.6336ms
+2023-11-02 15:16:34.601 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance?unit=2 application/json 149
+2023-11-02 15:16:34.601 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:16:34.601 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:34.601 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:16:34.601 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:34.601 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000004": started reading request body.
+2023-11-02 15:16:34.602 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000004": done reading request body.
+2023-11-02 15:16:37.194 +02:00 [INF] Setting HTTP status code 200.
+2023-11-02 15:16:37.194 +02:00 [INF] Writing value of type 'DistanceResponse' as Json.
+2023-11-02 15:16:37.195 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:37.195 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" completed keep alive response.
+2023-11-02 15:16:37.195 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance?unit=2 application/json 149 - 200 - application/json;+charset=utf-8 2593.7418ms
+2023-11-02 15:16:41.410 +02:00 [DBG] Connection id "0HMURKN7GA7UR" received FIN.
+2023-11-02 15:16:41.411 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance?unit=2 application/json 149
+2023-11-02 15:16:41.411 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:16:41.411 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:41.411 +02:00 [DBG] Connection id "0HMURKN7GA7UR" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-11-02 15:16:41.411 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:16:41.411 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:41.411 +02:00 [DBG] Connection id "0HMURKN7GA7UR" disconnecting.
+2023-11-02 15:16:41.411 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000005": started reading request body.
+2023-11-02 15:16:41.411 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000005": done reading request body.
+2023-11-02 15:16:41.412 +02:00 [DBG] Connection id "0HMURKN7GA7UR" stopped.
+2023-11-02 15:16:44.315 +02:00 [INF] Setting HTTP status code 200.
+2023-11-02 15:16:44.315 +02:00 [INF] Writing value of type 'DistanceResponse' as Json.
+2023-11-02 15:16:44.315 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:44.315 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" completed keep alive response.
+2023-11-02 15:16:44.315 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance?unit=2 application/json 149 - 200 - application/json;+charset=utf-8 2904.7341ms
+2023-11-02 15:16:50.780 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance?unit=1 application/json 149
+2023-11-02 15:16:50.780 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:16:50.780 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:50.781 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:16:50.781 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:50.781 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000006": started reading request body.
+2023-11-02 15:16:50.781 +02:00 [DBG] Connection id "0HMURKN7GA7UQ", Request id "0HMURKN7GA7UQ:00000006": done reading request body.
+2023-11-02 15:16:53.778 +02:00 [INF] Setting HTTP status code 200.
+2023-11-02 15:16:53.779 +02:00 [INF] Writing value of type 'DistanceResponse' as Json.
+2023-11-02 15:16:53.779 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:16:53.779 +02:00 [DBG] Connection id "0HMURKN7GA7UQ" completed keep alive response.
+2023-11-02 15:16:53.779 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance?unit=1 application/json 149 - 200 - application/json;+charset=utf-8 2998.5331ms
+2023-11-02 15:24:06.857 +02:00 [DBG] Hosting starting
+2023-11-02 15:24:07.169 +02:00 [INF] Now listening on: https://localhost:7130
+2023-11-02 15:24:07.170 +02:00 [INF] Now listening on: http://localhost:5241
+2023-11-02 15:24:07.170 +02:00 [DBG] Loaded hosting startup assembly DistanceCalculatorAPI
+2023-11-02 15:24:07.170 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-02 15:24:07.170 +02:00 [INF] Hosting environment: Development
+2023-11-02 15:24:07.171 +02:00 [INF] Content root path: /Users/alexandraprisecaru/RiderProjects/DistanceCalculatorAPI/DistanceCalculatorAPI
+2023-11-02 15:24:07.171 +02:00 [DBG] Hosting started
+2023-11-02 15:24:07.570 +02:00 [DBG] Connection id "0HMURKRV05IDH" received FIN.
+2023-11-02 15:24:07.574 +02:00 [DBG] Connection id "0HMURKRV05IDH" accepted.
+2023-11-02 15:24:07.574 +02:00 [DBG] Connection id "0HMURKRV05IDH" started.
+2023-11-02 15:24:07.585 +02:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-11-02 15:24:07.596 +02:00 [DBG] Connection id "0HMURKRV05IDI" accepted.
+2023-11-02 15:24:07.596 +02:00 [DBG] Connection id "0HMURKRV05IDI" started.
+2023-11-02 15:24:07.596 +02:00 [DBG] Connection id "0HMURKRV05IDH" stopped.
+2023-11-02 15:24:07.597 +02:00 [DBG] Connection id "0HMURKRV05IDJ" accepted.
+2023-11-02 15:24:07.597 +02:00 [DBG] Connection id "0HMURKRV05IDJ" started.
+2023-11-02 15:24:07.608 +02:00 [DBG] Connection id "0HMURKRV05IDH" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-11-02 15:24:07.721 +02:00 [DBG] Connection 0HMURKRV05IDJ established using the following protocol: "Tls12"
+2023-11-02 15:24:07.721 +02:00 [DBG] Connection 0HMURKRV05IDI established using the following protocol: "Tls12"
+2023-11-02 15:24:07.755 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/index.html - -
+2023-11-02 15:24:07.755 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-11-02 15:24:07.792 +02:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2023-11-02 15:24:07.793 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 15:24:07.881 +02:00 [DBG] Connection id "0HMURKRV05IDJ" completed keep alive response.
+2023-11-02 15:24:07.883 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/index.html - - - 200 - text/html;charset=utf-8 129.0435ms
+2023-11-02 15:24:08.292 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - -
+2023-11-02 15:24:08.295 +02:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2023-11-02 15:24:08.296 +02:00 [DBG] Request did not match any endpoints
+2023-11-02 15:24:08.299 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-11-02 15:24:08.385 +02:00 [DBG] Connection id "0HMURKRV05IDJ" completed keep alive response.
+2023-11-02 15:24:08.385 +02:00 [INF] Request finished HTTP/1.1 GET https://localhost:7130/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 93.5379ms
+2023-11-02 15:24:21.642 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance?unit=1 application/json 149
+2023-11-02 15:24:21.646 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:24:21.646 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:24:21.647 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:24:21.653 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:24:21.658 +02:00 [DBG] Connection id "0HMURKRV05IDJ", Request id "0HMURKRV05IDJ:00000003": started reading request body.
+2023-11-02 15:24:21.658 +02:00 [DBG] Connection id "0HMURKRV05IDJ", Request id "0HMURKRV05IDJ:00000003": done reading request body.
+2023-11-02 15:24:24.806 +02:00 [INF] Setting HTTP status code 200.
+2023-11-02 15:24:24.806 +02:00 [INF] Writing value of type 'DistanceResponse' as Json.
+2023-11-02 15:24:24.814 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:24:24.815 +02:00 [DBG] Connection id "0HMURKRV05IDJ" completed keep alive response.
+2023-11-02 15:24:24.815 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance?unit=1 application/json 149 - 200 - application/json;+charset=utf-8 3172.5703ms
+2023-11-02 15:24:29.279 +02:00 [INF] Request starting HTTP/1.1 POST https://localhost:7130/distance application/json 149
+2023-11-02 15:24:29.279 +02:00 [DBG] 1 candidate(s) found for the request path '/distance'
+2023-11-02 15:24:29.279 +02:00 [DBG] Request matched endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:24:29.279 +02:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2023-11-02 15:24:29.279 +02:00 [INF] Executing endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:24:29.281 +02:00 [DBG] Connection id "0HMURKRV05IDJ", Request id "0HMURKRV05IDJ:00000004": started reading request body.
+2023-11-02 15:24:29.281 +02:00 [DBG] Connection id "0HMURKRV05IDJ", Request id "0HMURKRV05IDJ:00000004": done reading request body.
+2023-11-02 15:24:37.332 +02:00 [INF] Setting HTTP status code 200.
+2023-11-02 15:24:37.333 +02:00 [INF] Writing value of type 'DistanceResponse' as Json.
+2023-11-02 15:24:37.335 +02:00 [INF] Executed endpoint 'HTTP: POST distance => GetDistance'
+2023-11-02 15:24:37.337 +02:00 [DBG] Connection id "0HMURKRV05IDJ" completed keep alive response.
+2023-11-02 15:24:37.337 +02:00 [INF] Request finished HTTP/1.1 POST https://localhost:7130/distance application/json 149 - 200 - application/json;+charset=utf-8 8058.8509ms

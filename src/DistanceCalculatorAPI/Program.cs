@@ -9,7 +9,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
-const string LocalIpV4 = "0.0.0.1";
+const string LocalIpV4 = "127.0.0.1";
 const string LocalIpV6 = "::1";
 const string ROAIpAddress = "109.163.226.0";
 

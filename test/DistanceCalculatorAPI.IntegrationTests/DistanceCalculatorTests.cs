@@ -45,10 +45,10 @@ public class DistanceCalculatorTests : IClassFixture<SharedFixture>
     {
         var result =
             await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, ROAIpAddress,
-                this._sphericalType, this._metricUnit);
+                _sphericalType, _metricUnit);
 
         result.Should().NotBeNull();
-        result.Unit.Should().Be(this._metricUnit);
+        result.Unit.Should().Be(_metricUnit);
         result.Distance.Should().Be(8509.390927355293);
     }
 
@@ -56,7 +56,7 @@ public class DistanceCalculatorTests : IClassFixture<SharedFixture>
     public async Task ShouldIdentifyMetricUnitBasedOnIpAndUseIdtToGetDistance_Sphere()
     {
         var result =
-            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, ROAIpAddress, this._sphericalType);
+            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, ROAIpAddress, _sphericalType);
 
         result.Should().NotBeNull();
         result.Unit.Should().Be(Unit.Metric);
@@ -67,7 +67,7 @@ public class DistanceCalculatorTests : IClassFixture<SharedFixture>
     public async Task ShouldIdentifyImperialUnitBasedOnIpAndUseIdtToGetDistance_Sphere()
     {
         var result =
-            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, USAIpAddress, this._sphericalType);
+            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, USAIpAddress, _sphericalType);
 
         result.Should().NotBeNull();
         result.Unit.Should().Be(Unit.Imperial);

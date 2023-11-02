@@ -30,8 +30,8 @@ public class DistanceProviderServiceTests
         _pointA = fixture.Create<CoordinateDto>();
         _pointB = fixture.Create<CoordinateDto>();
         _ipAddress = fixture.Create<string>();
-        this._metricUnit = Unit.Metric;
-        this._sphereType = CalculationType.Spherical;
+        _metricUnit = Unit.Metric;
+        _sphereType = CalculationType.Spherical;
 
         _mockDistanceCalculatorService = new Mock<IDistanceCalculatorService>();
         _mockLocationProviderService = new Mock<ILocationProviderService>();
@@ -51,7 +51,7 @@ public class DistanceProviderServiceTests
 
         // Act + Assert
         var call = async () =>
-            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, this._sphereType, this._metricUnit,
+            await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, _sphereType, _metricUnit,
                 cancellationTokenSource.Token);
         call.Should().ThrowAsync<OperationCanceledException>();
     }
@@ -73,7 +73,7 @@ public class DistanceProviderServiceTests
             .Returns(expectedDistance);
 
         // Act
-        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, this._sphereType, unit);
+        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, _sphereType, unit);
 
         // Assert
         _mockLocationProviderService.Verify(
@@ -98,7 +98,7 @@ public class DistanceProviderServiceTests
             .Returns(expectedDistance);
 
         // Act
-        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, this._sphereType, unit);
+        var response = await _distanceProviderService.GetDistanceAsync(_pointA, _pointB, _ipAddress, _sphereType, unit);
 
         // Assert
         _mockLocationProviderService.Verify(

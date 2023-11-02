@@ -25,8 +25,8 @@ public class LocationProviderService : ILocationProviderService
     {
         cancellationToken.ThrowIfCancellationRequested();
         
-        var locationInfo = await this._client.Request($"{ipAddress}")
-            .SetQueryParam("access_key", this._ipApiSettings.Key)
+        var locationInfo = await _client.Request($"{ipAddress}")
+            .SetQueryParam("access_key", _ipApiSettings.Key)
             .OnError(call =>
             {
                 call.ExceptionHandled = true;

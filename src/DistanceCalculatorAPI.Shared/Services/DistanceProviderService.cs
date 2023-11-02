@@ -29,19 +29,19 @@ public class DistanceProviderService : IDistanceProviderService
 
         unit ??= await GetUnitByIpAddress(ipAddress, cancellationToken);
 
-        this._log.Information("Calculating distance between coordinates on sphere");
+        _log.Information("Calculating distance between coordinates on sphere");
         double distance = 0;
 
         switch (type)
         {
             case CalculationType.Spherical:
-                distance = this._distanceCalculatorService.CalculateSphericalDistance(pointA, pointB);
+                distance = _distanceCalculatorService.CalculateSphericalDistance(pointA, pointB);
                 break;
             case CalculationType.Flat:
-                distance = this._distanceCalculatorService.CalculateFlatDistance(pointA, pointB);
+                distance = _distanceCalculatorService.CalculateFlatDistance(pointA, pointB);
                 break;
             case CalculationType.Ellipsoidal:
-                distance = this._distanceCalculatorService.CalculateEllipsoidalDistance(pointA, pointB);
+                distance = _distanceCalculatorService.CalculateEllipsoidalDistance(pointA, pointB);
                 break;
         }
 
@@ -53,17 +53,17 @@ public class DistanceProviderService : IDistanceProviderService
 
     private async Task<Unit> GetUnitByIpAddress(string ipAddress, CancellationToken cancellationToken = default)
     {
-        this._log.Information("Attempting to get country based on IP");
+        _log.Information("Attempting to get country based on IP");
         cancellationToken.ThrowIfCancellationRequested();
 
-        var country = await this._locationProviderService.GetCountryCodeAsync(ipAddress, cancellationToken);
+        var country = await _locationProviderService.GetCountryCodeAsync(ipAddress, cancellationToken);
         if (country is null)
         {
-            this._log.Warning("Couldn't identify country based on ip address");
+            _log.Warning("Couldn't identify country based on ip address");
             return Unit.Metric;
         }
 
-        this._log.Information("Getting unit based on country");
+        _log.Information("Getting unit based on country");
         return new RegionInfo(country).IsMetric ? Unit.Metric : Unit.Imperial;
     }
 }
